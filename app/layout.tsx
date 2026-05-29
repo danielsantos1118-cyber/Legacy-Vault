@@ -38,9 +38,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Legacy Vault Wealth Management",
     description:
-      "Legacy Vault Wealth Management offers personalized insurance and wealth advisory services — including retirement planning, life insurance, and investment strategy — for clients across the U.S.",
+      "Trusted financial guidance in retirement planning, insurance, and long-term financial strategy. Based in White Plains, NY.",
     siteName: "Legacy Vault Wealth Management",
     type: "website",
+    images: [
+      {
+        url: "/Vault_Logo-removebg-preview.png",
+        width: 1200,
+        height: 630,
+        alt: "Legacy Vault Wealth Management",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

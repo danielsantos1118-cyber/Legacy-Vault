@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"$env:USERPROFILE\\\\.claude\\\\projects\" -Recurse | Select-Object -First 20 FullName, PSIsContainer)",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__javascript_tool",
+      "mcp__Claude_in_Chrome__computer",
+      "Bash(npm run *)",
+      "Bash(powershell -Command ' *)"
+    ]
+  }
+}

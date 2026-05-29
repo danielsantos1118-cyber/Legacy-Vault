@@ -1,0 +1,161 @@
+﻿@import "tailwindcss";
+
+@theme inline {
+  --color-bg: #F8F6F1;
+  --color-white: #FFFFFF;
+  --color-navy: #0D1F3C;
+  --color-gold: #B8973A;
+  --color-gold-light: #CBA84A;
+  --color-text: #2A2A2A;
+  --color-text-muted: #5A5A5A;
+  --color-surface: #F0EDE6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F8F6F1;
+  color: #2A2A2A;
+}
+
+/* â”€â”€ Diagonal crosshatch texture â€” light lines on dark â”€â”€ */
+.lv-texture-dark {
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      transparent 0,
+      transparent 60px,
+      rgba(255,255,255,0.018) 60px,
+      rgba(255,255,255,0.018) 61px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0,
+      transparent 60px,
+      rgba(255,255,255,0.012) 60px,
+      rgba(255,255,255,0.012) 61px
+    );
+}
+
+/* â”€â”€ Diagonal crosshatch texture â€” dark lines on light â”€â”€ */
+.lv-texture-light {
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      transparent 0,
+      transparent 60px,
+      rgba(28,43,42,0.025) 60px,
+      rgba(28,43,42,0.025) 61px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0,
+      transparent 60px,
+      rgba(28,43,42,0.015) 60px,
+      rgba(28,43,42,0.015) 61px
+    );
+}
+
+/* â”€â”€ Gold rule line â”€â”€ */
+.lv-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(184,151,58,0.5) 25%,
+    rgba(184,151,58,0.9) 50%,
+    rgba(184,151,58,0.5) 75%,
+    transparent 100%
+  );
+}
+
+/* â”€â”€ Hero load-in animations â”€â”€ */
+@keyframes lv-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lv-expand-x {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+.lv-hero-kicker  { opacity: 0; animation: lv-fade-up 0.8s cubic-bezier(0.25,0.1,0.25,1) 0.1s forwards; }
+.lv-hero-title   { opacity: 0; animation: lv-fade-up 0.9s cubic-bezier(0.25,0.1,0.25,1) 0.3s forwards; }
+.lv-hero-rule    { opacity: 0; transform-origin: center; animation: lv-expand-x 0.7s cubic-bezier(0.25,0.1,0.25,1) 0.55s forwards; }
+.lv-hero-body    { opacity: 0; animation: lv-fade-up 0.8s cubic-bezier(0.25,0.1,0.25,1) 0.65s forwards; }
+.lv-hero-cta     { opacity: 0; animation: lv-fade-up 0.8s cubic-bezier(0.25,0.1,0.25,1) 0.85s forwards; }
+
+/* â”€â”€ Scroll-triggered fade-in â”€â”€ */
+.lv-fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(0.25,0.1,0.25,1),
+              transform 0.85s cubic-bezier(0.25,0.1,0.25,1);
+}
+.lv-fade-in.lv-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* â”€â”€ Gold button â”€â”€ */
+@keyframes lv-shine {
+  from { left: -80%; }
+  to   { left: 130%; }
+}
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background-color: #B8973A;
+  color: #000000;
+  font-weight: 600;
+  box-shadow: 0 2px 16px rgba(184,151,58,0.25);
+  transition: background-color 0.25s ease,
+              box-shadow 0.3s ease,
+              transform 0.2s ease;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -80%;
+  width: 55%;
+  height: 120%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+.btn-primary:hover {
+  background-color: #CBA84A;
+  box-shadow: 0 6px 24px rgba(184,151,58,0.35);
+  transform: translateY(-2px);
+}
+.btn-primary:hover::before {
+  animation: lv-shine 0.55s ease forwards;
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* â”€â”€ Ghost / outline button â”€â”€ */
+.btn-ghost {
+  border: 1px solid rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.8);
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.7);
+  color: #fff;
+}
+
+/* â”€â”€ Card â”€â”€ */
+.lv-card {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.lv-card:hover {
+  box-shadow: 0 20px 48px rgba(0,0,0,0.18);
+  transform: translateY(-3px);
+}

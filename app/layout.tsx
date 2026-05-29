@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/Vault_Logo-removebg-preview.png",
+        url: "/Vault Logo1.png",
         width: 1200,
         height: 630,
         alt: "Legacy Vault Wealth Management",
